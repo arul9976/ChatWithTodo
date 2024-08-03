@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100dvh;
+    align-content: center;
+}
+.container {
+    width: 80%;
+    height: 80dvh;
+    background: #000;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 40% 60%;
+}
+
+.cardBody{
+    overflow-y: scroll;
+}

@@ -1,0 +1,58 @@
+.todo-item {
+  display: flex;
+  background-color: #ffa2ae;
+  width: 80%;
+  border-radius: 25px;
+  padding: 1rem;
+  color: #ffffff;
+  font-family: sans-serif;
+  column-gap: 3rem;
+  position: relative;
+  margin: 2em auto;
+  justify-content: center;
+  align-items: baseline;
+  max-width: 700px;
+  min-width: 200px;
+
+}
+
+.heading-todo {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.todo-item::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 95%;
+  background: linear-gradient(to bottom, #317ef0, #a9ade05b);
+  left: -20px;
+  top: 5px;
+}
+
+.todo-item::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -29px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #317ef0;
+}
+
+.todo-content{
+  display: grid;
+  gap: .7em;
+}
+
+.todo-item.completed::after {
+  background: url("../assets/checkmark.png"), no-repeat;
+  background-size: contain;
+  background-color: #ffffff;
+}
+
+.todo-item.completed::before {
+  background: linear-gradient(to bottom, #0bbe47, #1fd4985b);
+}
