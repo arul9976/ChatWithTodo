@@ -1,0 +1,118 @@
+.loginBar {
+    width: 100%;
+    margin: auto;
+    height: 100%;
+    align-content: center;
+
+}
+
+.loginBar svg {
+    position: absolute;
+    bottom: 0;
+}
+
+.loginBar form {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    background: #317ef0;
+    padding: 3em 0;
+    border-radius: 20px;
+    max-width: 700px;
+    width: 95%;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.loginBar .nameEmail {
+    width: 80%;
+    margin: auto;
+    height: 4em;
+    overflow: hidden;
+    display: flex;
+    gap: 1em;
+    /* padding: 0 .2em; */
+}
+
+.nameEmail input {
+    width: 90% !important;
+}
+
+.loginBar button,
+.loginBar input,
+.head {
+    width: 80%;
+    margin: auto;
+    height: 3em;
+    color: #fff;
+
+}
+
+.loginBar input,
+.loginBar button {
+    width: 72%;
+}
+
+.loginBar button {
+    border-radius: 20px;
+    border: none;
+    font-size: 1.2em;
+    color: #fff;
+    background: linear-gradient(to right, #06df84, rgb(15, 166, 253));
+}
+
+input::placeholder {
+    color: #1a1919;
+}
+
+input.Error {
+    box-shadow: 0 0 0 2px red;
+}
+
+form p {
+    margin: auto;
+    color: #312f2f;
+}
+
+form p span {
+    color: #0569ff;
+    cursor: pointer;
+    font-size: 1.2em;
+
+    font-weight: bold;
+
+}
+
+.nameEmail.active,
+.nameEmail.active input {
+    height: 0;
+    transition: 400;
+
+}
+
+form::after,
+form::before {
+    position: absolute;
+    content: "";
+    width: 25em;
+    height: 25em;
+    background: #00ffbf;
+    border-radius: 50%;
+    bottom: -105px;
+    right: -105px;
+    z-index: -1;
+}
+
+form::before {
+    bottom: calc(60% + 30px) !important;
+    right: calc(60% + 30px) !important;
+}
+
+.serverErr {
+    position: absolute;
+    bottom: 190px;
+    color: red;
+    left: calc(100% - 85%);
+}

@@ -1,39 +1,25 @@
 import React, { useState } from 'react'
 import { TodoItem } from './TodoItem'
-export const Todo = () => {
-  const [data, setData] = useState([
-    {
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis corporis odio assumenda ea commodi ipsum suscipit nulla adipisci unde",
-      subject: "tempore ab magnam voluptatum, neque incidunt vitae. Possimus numquam laborum quidem.",
-      checked: true,
-      time: "10:30AM"
-    },
-    {
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis corporis odio assumenda ea commodi ipsum suscipit nulla adipisci unde",
-      subject: "tempore ab magnam voluptatum, neque incidunt vitae. Possimus numquam laborum quidem.",
-      checked: false,
-      time: "01:30AM"
-    },
-    {
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis corporis odio assumenda ea commodi ipsum suscipit nulla adipisci unde",
-      subject: "tempore ab magnam voluptatum, neque incidunt vitae. Possimus numquam laborum quidem.",
-      checked: true,
-      time: "11:30AM"
-    }
-  ]);
+import { ReduxData } from './Utils/Crud';
+export const Todo = ({ updateData, show }) => {
+  const [data, setData] = useState();
+
+  const { TodoDatas } = ReduxData();
   return (
-    <div>
+    <>
       {
-        data.map((item, index) => {
+        (TodoDatas && TodoDatas.length > 0) &&
+        TodoDatas.map((item, index) => {
           return (
-            <TodoItem key={index} content={item.content}
-              time={item.time} subject={item.subject}
-              completed={item.checked} />
+            <TodoItem id={item._id} key={index} content={item.message}
+              time={item.TimeDate} subject={item.subject}
+              completed={item.checked} update={updateData} show={show} />
           )
 
         })
       }
-    </div>
+    </>
+
   )
 }
 

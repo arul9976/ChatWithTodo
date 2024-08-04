@@ -1,23 +1,262 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    transition: 400ms;
 }
 
-body{
+#root {
     height: 100dvh;
+    background: #ddeafc;
+    overflow: hidden;
     align-content: center;
 }
+
 .container {
-    width: 80%;
-    height: 80dvh;
-    background: #000;
+    width: 100%;
+    height: 100dvh;
+    min-width: 300px;
+    max-width: 700px;
     overflow: hidden;
     border-radius: 10px;
     margin: auto;
     display: grid;
-    grid-template-rows: 40% 60%;
+    grid-template-rows: 10% 10% 65% 10%;
+    gap: 2%;
 }
 
-.cardBody{
+.cardTop {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.headerBar {
+    width: 100%;
+    height: 100%;
+    max-width: 700px;
+    padding: 0 .5em;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5em;
+    /* flex-direction: row-reverse; */
+
+}
+
+.headerBar .box {
+    background: #317ef0;
+    width: 5em;
+    height: 6em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.box.active{
+    background: red;
+}
+
+.box .day {
+    font-size: 1em;
+    color: #bdb9b9;
+}
+
+.box .date {
+    font-size: 2em;
+    font-weight: 800;
+}
+
+.cardBody {
     overflow-y: scroll;
+    background: #fff;
+    width: 100%;
+    padding: .5em 1em;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+
+}
+
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 0 1em;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: cursive;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    color: #317ef0;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.feeds {
+    font-size: 2em;
+}
+
+.Profile {
+    height: 100%;
+    width: 5em;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    padding: .5em 0;
+}
+
+.Profile .img {
+    width: 3em;
+    height: 3em;
+    background: rgb(209, 138, 138);
+    border-radius: 50%;
+    margin: auto;
+}
+
+.Profile .name {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+
+.inputBar {
+    background: #fff;
+    border-radius: 30px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.inputBar .plus {
+    background: #fff;
+    height: 5em;
+    width: 5em;
+    display: flex;
+    align-items: center;
+    padding: .5em;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+.plus svg {
+    fill: #317ef0;
+
+}
+
+.plus svg.show {
+    transform: rotate(135deg);
+
+}
+
+.inputBar form {
+    position: absolute;
+    bottom: 120px;
+    right: 1em;
+    color: #fff;
+    width: calc(100% - 2em);
+    height: 20em;
+    background: #317ef0;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2em;
+    border-radius: 10px;
+    gap: 1em;
+    overflow: hidden;
+    z-index: -1;
+
+}
+
+.inputBar form.hide {
+    bottom: -500px;
+
+}
+
+input,
+textarea {
+    color: #fff;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #dbd7d7;
+}
+
+form input,
+form .btn {
+    width: calc(100% - 4.5em);
+    height: 3.5em;
+    border-radius: 10px;
+    border: none;
+    padding: 0 1em;
+    outline: none;
+    font-size: 1.2em;
+    background: transparent;
+    box-shadow: 0 0 0 1px #fff;
+}
+
+form .err {
+    box-shadow: 0 0 0 2px red;
+}
+
+form textarea {
+    padding: 1em;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    box-shadow: 0 0 0 1px #fff;
+}
+
+form .btn svg {
+    fill: lightgoldenrodyellow;
+
+}
+
+form .btn {
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+    display: flex;
+    background: linear-gradient(90deg, rgb(25, 212, 172), rgb(8, 136, 176));
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+
+@media screen and (max-width: 500px) {
+    .container {
+        font-size: 14px !important;
+    }
+}
+
+@media screen and (max-height: 700px) {
+
+    .Profile .img {
+        width: 2em;
+        height: 2em;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .container {
+        font-size: 12px !important;
+    }
 }
